@@ -1,0 +1,66 @@
+﻿@model IEnumerable<clinic_Manage.Models.Appointment>
+
+@{
+    ViewData["Title"] = "Appointments";
+}
+<style>
+  
+    body {
+        background: url('@Url.Content("~/Content/poly.jpeg")') no-repeat center fixed;
+        background-size: cover;
+        padding: 0px;
+        margin:0px;
+        color: black;
+        font-size: 20px;
+        
+    }
+     .table th, .table td {
+        padding: 8px;
+        margin:0px;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+        text-align: center;
+    }
+   
+
+</style>
+
+
+<h1>Appointments List</h1>
+<hr />
+
+<table class="table table-striped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Patient)</th>
+            <th>@Html.DisplayNameFor(model => model.ReasonForVisit)</th>
+            <th>@Html.DisplayNameFor(model => model.Status)</th>
+            <th>@Html.DisplayNameFor(model => model.Cost)</th>
+            <th>@Html.DisplayNameFor(model => model.Doctor)</th>
+            <th>@Html.DisplayNameFor(model => model.AppointmentDate)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Patient.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.ReasonForVisit)</td>
+                <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                <td>@Html.DisplayFor(modelItem => item.Cost)</td>
+                <td>@Html.DisplayFor(modelItem => item.Doctor.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.AppointmentDate)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.AppointmentId" class="btn btn-primary btn-sm">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.AppointmentId" class="btn btn-info btn-sm">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.AppointmentId" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Schedule New Appointment</a>
+</p>

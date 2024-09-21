@@ -1,0 +1,32 @@
+﻿@model IEnumerable<clinic_Manage.Models.Patient>
+
+@{
+    ViewData["Title"] = "Patients";
+}
+
+<h1>Patients</h1>
+
+
+
+<div class="row patient-cards">
+    @foreach (var patient in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">@patient.Name</h5>
+                    <p class="card-text"><strong>Address:</strong> @patient.Address</p>
+                </div>
+                <div class="card-footer">
+                    <a asp-action="Edit" asp-route-id="@patient.PatientId" class="btn btn-primary">Edit</a>
+                    <a asp-action="Details" asp-route-id="@patient.PatientId" class="btn btn-info">Details</a>
+                    <a asp-action="Delete" asp-route-id="@patient.PatientId" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New Patient</a>
+</p>

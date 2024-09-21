@@ -1,0 +1,36 @@
+﻿@model IEnumerable<clinic_Manage.Models.Doctor>
+
+@{
+    ViewData["Title"] = "Doctors";
+}
+<style>
+    body {
+         background: url('@Url.Content("~/Content/doc-back.jpg")') no-repeat center center;
+           background-size: cover;
+            padding-bottom:100px;
+            color: black;
+    }
+</style>
+
+<h1>Doctors</h1>
+<hr />
+
+<div class="row doctor-cards">
+    @foreach (var doctor in Model)
+    {
+        <div class="col-md-4">
+            <div class="doctor-card mb-4 shadow-sm">
+                <div class="doctor-card-body">
+                    <h5 class="doctor-card-title">@doctor.Name</h5>
+                    <p class="doctor-card-text"><strong>Specialty:</strong> @doctor.Specialty</p>
+                    <a href="@Url.Action("Details", new { id = doctor.DoctorId })" class="doctor-btn doctor-btn-primary">View Profile</a>
+                    <a href="@Url.Action("Delete", new { id = doctor.DoctorId })" class="doctor-btn doctor-btn-danger">Remove</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div>
+    <a asp-action="Create" class="doctor-btn doctor-btn-success">Add New Doctor</a>
+</div>

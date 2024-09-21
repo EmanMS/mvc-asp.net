@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewData["Title"] = "Home";
+}
+<section class="helper-tools-section mt-5">
+    <div class="container">
+        <h2>Manage Your Medical Center</h2>
+        <div class="card-deck">
+            <div class="card card-1 mb-4">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-user-plus"></i> Patients</h5>
+                    <p class="card-text">Register new patients and keep their medical records up to date.</p>
+                    <a href="@Url.Action("Create", "Patients")" class="btn btn-success">Add New Patient</a>
+                    <a href="@Url.Action("Index", "Patients")" class="btn btn-outline-secondary">See All</a>
+                </div>
+            </div>
+            <div class="card card-2 mb-4">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-calendar-plus"></i>Appointments</h5>
+                    <p class="card-text">Schedule appointments for patients with ease.</p>
+                    <a href="@Url.Action("Create", "Appointments")" class="btn btn-success">Schedule An Appointment</a>
+                    <a href="@Url.Action("Index", "Appointments")" class="btn btn-outline-secondary">See All</a>
+                </div>
+            </div>
+            <div class="card card-3 mb-4">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-user-md"></i>Doctors</h5>
+                    <p class="card-text">Add new doctors to your medical center and manage their profiles.</p>
+                    <a href="@Url.Action("Create", "Doctors")" class="btn btn-success">Add New Doctor</a>
+                    <a href="@Url.Action("Index", "Doctors")" class="btn btn-outline-secondary">See All</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="department-section mt-5">
+    <div class="Center departments">
+        <h2>Our Departments</h2>
+        <div class="department-list">
+            <div class="department-item">
+                <img src="~/Content/tooth-icon.png" alt="Dentistry" />
+                <h3>Dentistry</h3>
+            </div>
+            <div class="department-item">
+                <img src="~/Content/cancer.png" alt="Cancer Care (Oncology)" />
+                <h3>Oncology</h3>
+            </div>
+            <div class="department-item">
+                <img src="~/Content/heart.png" alt="Heart Care (Cardiology)" />
+                <h3>Cardiology</h3>
+            </div>
+            <div class="department-item">
+                <img src="~/Content/brain.png" alt="Brain and Nerves (Neurology)" />
+                <h3>Neurology</h3>
+            </div>
+            <div class="department-item">
+                <img src="~/Content/bones.png" alt="bones and joints(Orthopedics)" />
+                <h3>Orthopedics</h3>
+            </div>
+            <div class="department-item">
+                <img src="~/Content/eye.png" alt="Ophthalmology (Eye Care)" />
+                <h3>Ophthalmology </h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2024 - Clinic Management System - All Rights Reserved
+        </a>
+    </div>
+</footer>
+
+
+
+

@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Clinic Management System</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        .hero {
+
+            background: url('@Url.Content("~/Content/back.jpeg")') no-repeat center center;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+            padding-bottom: 200px;
+        }
+
+        .navbar-custom {
+            background-color: #c8e6c9;
+            color: #2e7d32;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+            .navbar-custom .nav-link {
+                color: #2e7d32;
+            }
+
+               .navbar-custom .nav-link:hover {
+                   color: #a6d6b7;
+                }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #a6d6b7
+        }
+
+        .card-container {
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <a class="navbar-brand" href="#">Medical Center Management</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/Doctors">Doctors</a></li>
+                <li class="nav-item"><a class="nav-link" href="/Patients">Patients</a></li>
+                <li class="nav-item"><a class="nav-link" href="/Appointments">Appointments</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    @if (ViewBag.IsHomePage == true)
+    {
+        <div class="hero">
+            <h1>Welcome to the Clinic Management System</h1>
+            <p>Your reliable solution for managing patients, appointments, and more.</p>
+            <a href="/Appointments/Create" class="btn btn-primary">Schedule an Appointment</a>
+        </div>
+    }
+
+    <div class="container mt-4 card-container">
+        @RenderBody()
+    </div>
+
+
+   
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>
+
+
